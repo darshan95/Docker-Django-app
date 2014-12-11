@@ -1,0 +1,33 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+p
+{
+	font-size: 20px;
+}
+h3,th,td,p,h5
+ {
+ 	text-align: center;
+  color:white;
+ }
+ </style>
+{% if container_id == '0' %}
+<h4>Wrong command or image</h4>
+{% endif %}
+{% if container_id != '0' %}
+<h3>Container Successfully Created and executed the command</h3>
+<h3>Container</h3> <p>{{name}}</p>
+<h3>Id</h3><p>{{container_id}}</p>
+{% endif %}
+<h3> Want to commit the changes made to the system/image </h3>
+<form id="commit_from" method="post" action={{ bbc }}>
+    {% csrf_token %}
+<p>Enter the message with which you want to commit:</p> <input type="text" name="msg">
+<p>Enter the repo in which you want to save it: </p><input type="text" name="repo">
+<br/>
+<button type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}
+
+

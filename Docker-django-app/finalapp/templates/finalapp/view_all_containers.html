@@ -1,0 +1,32 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,th,td
+ {
+    text-align:center;
+  color:white;
+ }
+ </style>
+<h3>View Running Containers</h3>
+<br/>
+<table class="table table-normal">
+<thead>
+	<th><b>Id</b></th>
+    <th><b>Image</b></th>
+    <th><b>Name</b></th>
+    <th><b>Status</b></th>
+	<th><b>Created At</b></th>
+</thead>
+
+{% for i in all_containers %}
+	<tr>
+        <td>{{ i.Id }}</td>
+        <td>{{ i.Image }}</td>
+         <td>{{ i.Names }}</td>
+        <td>{{ i.Status }}</td>
+        <td>{{ i.Created }}</td>
+    </tr> 
+{% endfor %}
+</table>
+{% endblock %}

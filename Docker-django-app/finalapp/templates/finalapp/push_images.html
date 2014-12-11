@@ -1,0 +1,16 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4,h5
+ {
+ 	text-align: center;
+  color:white;
+ }
+ </style>
+{% ifequal ret 256 %}
+	<h3> Pushing Image failed </h3>
+{% else %}
+	<h3> Image successfully pushed </h3>
+{% endifequal %}
+{% endblock %}

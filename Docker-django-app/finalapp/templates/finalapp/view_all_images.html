@@ -1,0 +1,33 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4,h5,th,td,body
+ {
+    text-align:center;
+   color:white;
+ }
+ </style>
+<h3>View Pulled Images</h3>
+<table class="table table-normal">
+<thead>
+	<th><b>User</b></th>
+	<th><b>Name</b></th>
+	<th><b>Id</b></th>
+	<th><b>Virtual Images</b></th>
+	<th><b>Created At</b></th>
+	<th><b>OS</b></th>
+</thead>
+
+{% for i in all_images %}
+	<tr>
+        <td>{{ i.uid }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.id_images }}</td>
+        <td>{{ i.virtual_size }}</td>
+        <td>{{ i.created }}</td> 
+        <td>{{ i.os }}</td>
+    </tr> 
+{% endfor %}
+</table>
+{% endblock %}

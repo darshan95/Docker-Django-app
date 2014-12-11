@@ -1,0 +1,21 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4,h5
+ {
+  color:white;
+ }
+ </style>
+<form class="form-inline" id="ask_images_formi1" method="post" action="/finalapp/ask_push_images3/">
+    {% csrf_token %}
+    <h4>Name of the image to be Pushed</h4>
+    <select name="name">
+    	{% for image in image_name %}
+    		<option value={{ image }}>{{ image }}</option>
+    	{% endfor %}
+    </select>
+    <br/><br/>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

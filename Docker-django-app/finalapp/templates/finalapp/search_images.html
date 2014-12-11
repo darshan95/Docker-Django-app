@@ -1,0 +1,32 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+td,th
+{
+	font-size: 20px;
+}
+h3,h4,h5,th,td,body
+ {
+  color:white;
+ }
+ </style>
+<h3>Search Image result</h3>
+<table class="table table-normal">
+<thead>
+	<th><b>Name</b></th>
+	<th><b>Star count</b></th>
+	<th><b>Description</b></th>
+	<th><b>Is official</b></th>
+</thead>
+
+{% for val in value %}
+	<tr>
+        <td>{{ val.name }}</td>
+        <td>{{ val.star_count }}</td>
+        <td>{{ val.description }}</td>
+        <td>{{ val.is_official }}</td>
+    </tr> 
+{% endfor %}
+</table>
+{% endblock %}

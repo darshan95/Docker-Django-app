@@ -1,0 +1,22 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4
+ {
+  font-size:30px;
+  color:white;
+  text-align:center;
+ }
+ </style>
+<h3>Pull an Image</h3><br/>
+<form  id="ask_images_form" method="post" action="/finalapp/ask_images/">
+    {% csrf_token %}
+
+    <h4>Name of the image</h4>
+    <br/>
+    <input type="text" name="name"><br/><br/>
+    <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+{% endblock %}

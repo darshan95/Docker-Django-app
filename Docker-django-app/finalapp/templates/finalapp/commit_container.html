@@ -1,0 +1,37 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,th,td,body
+ {
+ 	text-align: center;
+  color:white;
+ }
+ </style>
+
+{{ name }}
+{% ifequal new_img_id 0 %}
+    <h4>Error: Container not commited </h4>
+{% endifequal %}
+{% if new_img_id != '0' %}
+<h3>Container commited</h3>
+<br/><br/>
+<table class='table table-normal' border="1">
+<thead>
+<th>Image-Id</th>
+<th>Name</th>
+<th>OS</th>
+<th>Virtual Size</th>
+<th>Created</th>
+</thead>
+<tr>
+<td>{{ new_img.Id }}</td>
+<td>{{ repo }}</td>
+<td>{{ new_img.Os }}</td>
+<td>{{ new_img.VirtualSize }}</td>
+<td>{{ new_img.Created }}</td>
+</tr>
+</table>
+{% endif%}
+<br/>
+{% endblock %}

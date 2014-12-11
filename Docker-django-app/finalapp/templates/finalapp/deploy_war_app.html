@@ -1,0 +1,31 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4
+ {
+  font-size:30px;
+  color:white;
+  text-align:center;
+ }
+ </style>
+ <h3>Deploy Application</h3>
+<form  id="ask_images_form" method="post" action="/finalapp/deploy_war_app/random/">
+    {% csrf_token %}
+
+    <h4>Enter Admin password for tomcat server</h4>
+    <br/>
+    <input type="text" name="admin_pass"><br/><br/>
+
+    <h4>Enter port to map container</h4>
+    <br/>
+    <input type="text" name="port_cont"><br/><br/>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+{% ifnotequal ip_app 'random' %}
+	<h3> IP of Tomcat App manager </h3><br/>
+	<h3>{{ ip_app }}</h3>
+{% endifnotequal %}
+{% endblock %}

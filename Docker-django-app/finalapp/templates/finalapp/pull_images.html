@@ -1,0 +1,41 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4,h5,p
+ {
+ 	text-align:center;
+  color:white;
+ }
+ </style>
+<h3>Pull Images</h3>
+{% ifequal flag 2 %}
+    <h4>Image doesn't exist </h4>
+{% endifequal %}
+{% ifequal flag 1 %}
+    <h4>Image already exists</h4>
+{% endifequal %}
+{% ifequal flag 0 %}
+    <h4>Image has been downloaded</h4>
+    <table class="table table-normal">
+	<thead>
+		<th><b>Name</b></th>
+		<th><b>Id</b></th>
+		<th><b>Virtual Size</b></th>
+		<th><b>Created </b></th>
+		<th><b>OS</b></th>
+	</thead>
+
+
+	<tr>
+        <td>{{ name }}</td>
+        <td>{{ a.Id }}</td>
+        <td>{{ a.VirtualSize }}</td>
+        <td>{{ a.Created }}</td> 
+        <td>{{ a.Os }}</td>
+    </tr> 
+
+</table>
+{% endifequal %}
+<br/>
+{% endblock %}

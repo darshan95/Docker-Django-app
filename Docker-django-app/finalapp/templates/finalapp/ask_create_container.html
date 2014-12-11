@@ -1,0 +1,38 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4
+ {
+    font-size: 30px;
+    text-align: center;
+  color:white;
+ }
+ </style>
+<form id="ask_images_form" method="post" action="/finalapp/ask_create_container/">
+    {% csrf_token %}
+
+    <h4>Image Id</h4>
+    <select name="image" style="font-size:20px;">
+    	{% for image in image_id %}
+    		<option value={{ image }}>{{ image }}</option>
+    	{% endfor %}
+    </select>
+    <br/><br/>
+
+    <h4>Volumes you want to attach to: </h4>
+    <input type="text" name="vol_type">
+    <br/><br/>
+
+    <h4>Working Directory: </h4>
+    <input type="text" name="working_dir">
+    <br/><br/>
+
+    <h4>Changes you want to do on the container </h4>
+    <input type="text" name="cmd">
+    <br/>
+    <br/><br/><br/>
+    <button type="submit" class="btn btn-default">Submit</button>
+
+</form>
+{% endblock %}

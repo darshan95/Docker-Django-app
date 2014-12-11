@@ -1,0 +1,32 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h4
+{
+	font-size: 30px;
+}
+h3,h4,h2
+ {
+ 	text-align:center;
+  color:white;
+ }
+ </style>
+<h2>Delete an Image</h2><br/>
+<form id="ask_images_form" method="post" action="/finalapp/ask_del_images/">
+    {% csrf_token %}
+
+    <h4>Id of the image to be deleted</h4>
+    <br/>
+    <select name="id" style="font-size:20px;">
+    	{% for image in image_id %}
+    		<option value={{ image }}>{{ image }}</option>
+    	{% endfor %}
+    </select>
+    <br/>
+    <br/>
+    <br/>
+    <button type="submit" class="btn btn-success">Submit</button>
+
+</form>
+{% endblock %}

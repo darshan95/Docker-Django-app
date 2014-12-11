@@ -1,0 +1,22 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,h4,h5
+{
+	font-size: 30px;
+ 	text-align: center;
+  color:white;
+
+ }
+ </style>
+<form id="ask_push_images1_form" method="post" action="/finalapp/ask_push_images1/" style="font-size: 20px">
+    {% csrf_token %}
+
+    <h4>Docker Credentials</h4><br/>
+    <h5>Username :</h5> : <input type="text" name="username"><br/>
+    <h5>Password :</h5> <input type="password" name="password"><br/>
+    <h5>email : </h5><input type="text" name="email"><br/><br/>	
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

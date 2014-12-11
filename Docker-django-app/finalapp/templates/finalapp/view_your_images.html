@@ -1,0 +1,31 @@
+{% extends "finalapp/base.html" %}
+{% load i18n %}
+{% block content-body %}
+<style>
+h3,th,td,body,h2
+ {
+ 	text-align:center;
+  color:white;
+ }
+ </style>
+<h2>View Your Committed Images</h2>
+<table class="table table-normal">
+<thead>
+	<th><b>Name</b></th>
+	<th><b>Id</b></th>
+	<th><b>Virtual Images</b></th>
+	<th><b>Created At</b></th>
+	<th><b>OS</b>/th>
+</thead>
+
+{% for i in all_images %}
+	<tr>
+        <td>{{ i.name }}</td>
+        <td>{{ i.id_images }}</td>
+        <td>{{ i.virtual_size }}</td>
+        <td>{{ i.created }}</td> 
+        <td>{{ i.os }}</td>
+    </tr> 
+{% endfor %}
+</table>
+{% endblock %}
